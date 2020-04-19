@@ -22,7 +22,17 @@ class Game {
     */
     getRandomPhrase() {
         const randomNum = Math.floor(Math.random() * this.phrases.length);
-        console.log(this.phrases[randomNum]);
-        return this.phrases[randomNum];
+        const randomPhrase = {
+            phrase: this.phrases[randomNum]
+                             }
+        return randomPhrase;
     }
+    
+    /**
+    * Begins game by selecting a random phrase and displaying it to user
+    */
+    startGame() {
+        document.querySelector('#overlay').style.display = 'none';
+        this.getRandomPhrase().addPhraseToDisplay;
+    };
 }
