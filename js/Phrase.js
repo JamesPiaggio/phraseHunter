@@ -21,4 +21,22 @@ class Phrase {
             }
         }
     }
+    
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+    checkLetter(letter) {
+        this.phrase.includes(letter);
+    }
+    
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        if (checkLetter(letter) === true) {
+            document.getElementsByClassName(letter).removeClass('hide');
+        }
+    }
 }
