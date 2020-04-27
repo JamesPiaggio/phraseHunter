@@ -42,7 +42,11 @@ class Game {
     won
     */
     checkForWin() {
-        
+        if (!document.getElementsByClassName('hide')) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     /**
@@ -51,7 +55,12 @@ class Game {
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-        
+        this.missed += 1;
+        const lives = document.getElementsByClassName('tries');
+        lives[this.missed].querySelector('img').src = 'lostHeart.png';
+        if (this.missed === 5) {
+            this.gameOver(false);
+        }
     }
     
     /**
@@ -59,6 +68,12 @@ class Game {
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
-        
+        if (gameWon === true) {
+            document.querySelector('#overlay').style.display = 'block';
+            document.querySelector('#overlay h1').innerHTML = 'Great job! You win!';
+        } else {
+            document.querySelector('#overlay').style.display = 'none';
+            document.querySelector('#overlay h1').innerHTML = 'Sorry, you lose! Try again...';
+        }
     }
 }

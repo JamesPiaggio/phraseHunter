@@ -27,7 +27,11 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        this.phrase.includes(letter);
+        if (this.phrase.includes(letter)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     /**
@@ -37,6 +41,9 @@ class Phrase {
     showMatchedLetter(letter) {
         if (checkLetter(letter) === true) {
             document.getElementsByClassName(letter).removeClass('hide');
+            document.getElementsByClassName(letter).addClass('show');
+        } else {
+            Game.removeLife();
         }
     }
 }
