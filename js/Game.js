@@ -22,9 +22,7 @@ class Game {
     */
     getRandomPhrase() {
         const randomNum = Math.floor(Math.random() * this.phrases.length);
-        const randomPhrase = {
-            phrase: this.phrases[randomNum]
-                             }
+        const randomPhrase = new Phrase(this.phrases[randomNum]);
         return randomPhrase;
     }
     
@@ -32,8 +30,8 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
-        document.querySelector('#overlay').style.display = 'none';
         new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
+        document.querySelector('#overlay').style.display = 'none';
     };
     
     /**
