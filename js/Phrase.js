@@ -39,9 +39,12 @@ class Phrase {
     * @param (string) letter - Letter to display
     */
     showMatchedLetter(letter) {
-        if (checkLetter(letter) === true) {
-            document.getElementsByClassName(letter).removeClass('hide');
-            document.getElementsByClassName(letter).addClass('show');
+        const letterValue = document.getElementsByClassName(letter);
+        if (this.checkLetter(letter) === true) {
+            for(let i = 0; i < letterValue.length; i++){
+                letterValue[i].classList.remove('hide');
+                letterValue[i].classList.add('show');
+            }
         } else {
             Game.removeLife();
         }
