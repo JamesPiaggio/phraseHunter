@@ -40,7 +40,8 @@ class Game {
     won
     */
     checkForWin() {
-        if (!document.getElementsByClassName('hide')) {
+        if (document.getElementsByClassName('hide').length === 0) {
+            this.gameOver(true);
             return true;
         } else {
             return false;
@@ -55,8 +56,8 @@ class Game {
     removeLife() {
         this.missed += 1;
         const lives = document.getElementsByClassName('tries');
-        lives[this.missed].querySelector('img').src = 'lostHeart.png';
-        if (this.missed === 5) {
+        lives[this.missed - 1].querySelector('img').src = 'images/lostHeart.png';
+        if (this.missed == 5) {
             this.gameOver(false);
         }
     }
@@ -70,7 +71,7 @@ class Game {
             document.querySelector('#overlay').style.display = 'block';
             document.querySelector('#overlay h1').innerHTML = 'Great job! You win!';
         } else {
-            document.querySelector('#overlay').style.display = 'none';
+            document.querySelector('#overlay').style.display = 'block';
             document.querySelector('#overlay h1').innerHTML = 'Sorry, you lose! Try again...';
         }
     }

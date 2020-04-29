@@ -46,7 +46,6 @@ class Phrase {
                 letterValue[i].classList.add('show');
             }
         } else {
-            Game.removeLife();
         }
     }
 }
