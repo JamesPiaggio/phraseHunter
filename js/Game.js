@@ -24,7 +24,7 @@ class Game {
         const randomNum = Math.floor(Math.random() * this.phrases.length);
         const randomPhrase = new Phrase(this.phrases[randomNum]);
         return randomPhrase;
-    }
+    };
     
     /**
     * Begins game by selecting a random phrase and displaying it to user
@@ -46,7 +46,7 @@ class Game {
         } else {
             return false;
         }
-    }
+    };
     
     /**
     * Increases the value of the missed property
@@ -60,7 +60,7 @@ class Game {
         if (this.missed == 5) {
             this.gameOver(false);
         }
-    }
+    };
     
     /**
     * Displays game over message
@@ -74,5 +74,22 @@ class Game {
             document.querySelector('#overlay').style.display = 'block';
             document.querySelector('#overlay h1').innerHTML = 'Sorry, you lose! Try again...';
         }
-    }
+    };
+    
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(button) {
+        console.log(button);
+        button.disable;
+        if (this.activePhrase.checkLetter(button.innerHTML)) {
+            this.activePhrase.showMatchedLetter(button.innerHTML);
+            button.classList.add('chosen');
+            this.checkForWin();
+        } else {
+            button.classList.add('wrong');
+            this.removeLife();
+        }
+    };
 }

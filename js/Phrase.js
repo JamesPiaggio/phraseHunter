@@ -20,7 +20,7 @@ class Phrase {
                 listItem.classList.add(listItem.innerHTML);
             }
         }
-    }
+    };
     
     /**
     * Checks if passed letter is in phrase
@@ -32,7 +32,7 @@ class Phrase {
         } else {
             return false;
         }
-    }
+    };
     
     /**
     * Displays passed letter on screen after a match is found
@@ -45,7 +45,6 @@ class Phrase {
                 letterValue[i].classList.remove('hide');
                 letterValue[i].classList.add('show');
             }
-        } else {
         }
-    }
+    };
 }
