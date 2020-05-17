@@ -1,13 +1,13 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
+const phraseList = document.querySelector('ul');
 class Phrase {
     constructor (phrase) {
         this.phrase = phrase.toString().toLowerCase();
     }
     /* Display Phrase on screen */
     addPhraseToDisplay() {
-        const phraseList = document.querySelector('ul');
         for(let i = 0; i < this.phrase.length; i++) {
             const listItem = document.createElement('li');
             listItem.innerHTML = this.phrase[i];
@@ -21,6 +21,12 @@ class Phrase {
             }
         }
     };
+    
+    removePhrase() {
+        for (let i = 0; i < phraseList.children.length; i++) {
+            phraseList.removeChild('li')[i];
+        }
+    }
     
     /**
     * Checks if passed letter is in phrase
