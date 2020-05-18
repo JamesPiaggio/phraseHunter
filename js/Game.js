@@ -38,15 +38,9 @@ class Game {
             phraseUl.removeChild(phraseLi[i]);
         }
         // Reactivates buttons
-        const buttons = document.querySelectorAll('.keyrow button');
+        const buttons = document.querySelectorAll('.key');
         for (let i = 0; i < buttons.length; i++) {
-            if (buttons[i].className === 'wrong') {
-                buttons[i].classList.add('key');
-                buttons[i].classList.remove('wrong');
-            } else if (buttons[i].className === 'chosen') {
-                buttons[i].classList.add('key');
-                buttons[i].classList.remove('chosen');
-            }
+                buttons[i].classList.remove('wrong', 'chosen');
         }
         // Resets Hearts/Lives
         for (let i = 0; i < document.getElementsByClassName('tries').length; i++) {
