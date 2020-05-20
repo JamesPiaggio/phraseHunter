@@ -40,6 +40,7 @@ class Game {
         // Reactivates buttons
         const buttons = document.querySelectorAll('.key');
         for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = false;
                 buttons[i].classList.remove('wrong', 'chosen');
         }
         // Resets Hearts/Lives
@@ -103,7 +104,7 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        button.disable;
+        button.disabled = true;
         if (this.activePhrase.checkLetter(button.innerHTML)) {
             this.activePhrase.showMatchedLetter(button.innerHTML);
             button.classList.add('chosen');

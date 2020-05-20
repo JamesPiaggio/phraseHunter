@@ -11,3 +11,15 @@ for (let i = 0; i < keys.length; i++ ) {
         game.handleInteraction(event.target);
     });
 };
+
+document.addEventListener('keyup', (e) => {
+    const regex = new RegExp('[a-z]');
+    const button = document.querySelectorAll('.key');
+        if (regex.test(e.key)) {
+            for (let i = 0; i < button.length; i++) {
+                if (button[i].innerHTML === e.key && button[i].disabled == false) {
+                    game.handleInteraction(button[i]);
+                }
+            }
+        }
+    });
