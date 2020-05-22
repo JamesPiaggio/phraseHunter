@@ -75,7 +75,7 @@ class Game {
     removeLife() {
         this.missed += 1;
         const lives = document.getElementsByClassName('tries');
-        lives[this.missed - 1].querySelector('img').src = 'images/lostHeart.png';
+        lives[5 - this.missed].querySelector('img').src = 'images/lostHeart.png';
         if (this.missed == 5) {
             this.gameOver(false);
         }
