@@ -7,10 +7,10 @@
   --color-win: #78CF82;
   --color-lose: #D94545;
   --color-start: #5b85b7;
-  --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-neutral: #B2B4B2;
+  --color-neutral-light: #B2B4B2;
+  --color-keys: #54585a;
+  --color-keys-light: #D2D2D2;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
@@ -38,6 +38,7 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
+  font-style: italic;
   font-size: var(--font-size-large);
   margin: 0;
 }
@@ -101,17 +102,16 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  transition: .35s ease-in;
 }
 
 .space {
   width: 15px;
 }
 
-
-
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #A7A4E0;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -131,15 +131,17 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #A7A4E0;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+  transition: .35s ease-in;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #514689;
   color: #FFFFFF;
+  transition: .35s ease-in;
 }
 
 .btn__reset {
@@ -157,6 +159,10 @@ button {
   padding: 14px 16px 16px 14px;
   border-bottom: solid 4px rgba(0, 0, 0, 0);
   border-right: solid 3px rgba(0, 0, 0, 0);
+}
+
+.tries {
+    fill: #514689;
 }
 
 
