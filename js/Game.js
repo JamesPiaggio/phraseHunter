@@ -4,7 +4,7 @@
 class Game {
     constructor () {
         this.missed = 0;
-        this.phrases = ['Super Mario Brothers', 'Donkey Kong Country', 'Earthbound', 'Chrono Trigger', 'Super Metroid'];
+        this.phrases = [new Phrase('Super Mario Brothers'), new Phrase('Donkey Kong Country'), new Phrase('Earthbound'), new Phrase('Chrono Trigger'), new Phrase('Super Metroid')];
         this.activePhrase = null;
     }
     
@@ -14,7 +14,7 @@ class Game {
     */
     getRandomPhrase() {
         const randomNum = Math.floor(Math.random() * this.phrases.length);
-        const randomPhrase = new Phrase(this.phrases[randomNum]);
+        const randomPhrase = this.phrases[randomNum];
         return randomPhrase;
     };
     
