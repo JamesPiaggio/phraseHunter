@@ -20,13 +20,7 @@ class Phrase {
                 listItem.classList.add(listItem.innerHTML);
             }
         }
-    };
-    
-    removePhrase() {
-        for (let i = 0; i < phraseList.children.length; i++) {
-            phraseList.removeChild('li')[i];
-        }
-    }
+    }; 
     
     /**
     * Checks if passed letter is in phrase

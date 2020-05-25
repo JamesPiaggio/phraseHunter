@@ -4,17 +4,9 @@
 class Game {
     constructor () {
         this.missed = 0;
-        this.phrases = this.createPhrases();
-        this.activePhrase = this.getRandomPhrase();
+        this.phrases = ['Super Mario Brothers', 'Donkey Kong Country', 'Earthbound', 'Chrono Trigger', 'Super Metroid'];
+        this.activePhrase = null;
     }
-    /**
-    * Creates phrases for use in game
-    * @return {array} An array of phrases that could be used in the game
-    */
-    createPhrases() {
-        const newPhrases = ['Super Mario Brothers', 'Donkey Kong Country', 'Earthbound', 'Chrono Trigger', 'Super Metroid'];
-        return newPhrases;
-    };
     
     /**
     * Selects random phrase from the phrases property
@@ -31,6 +23,7 @@ class Game {
     */
     startGame() {
         this.missed = 0;
+        this.activePhrase = this.getRandomPhrase();
         // Removes old phrase
         const phraseUl = document.querySelector('.section ul');
         const phraseLi = document.querySelectorAll('ul li');
@@ -48,7 +41,7 @@ class Game {
             document.getElementsByClassName('tries')[i].querySelector('img').src = 'images/liveHeart.png';
         }
         // Adds new phrase to display
-        new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
+        this.activePhrase.addPhraseToDisplay();
         document.querySelector('#overlay').style.display = 'none';
     };
     
@@ -60,7 +53,6 @@ class Game {
     checkForWin() {
         // If hidden characters equal 0, you win
         if (document.getElementsByClassName('hide').length === 0) {
-            this.gameOver(true);
             return true;
         } else {
             return false;
@@ -86,15 +78,16 @@ class Game {
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
+        const overlay = document.querySelector('#overlay');
         // Displays winning message
         if (gameWon === true) {
-            document.querySelector('#overlay').style.display = 'block';
-            document.querySelector('#overlay').style.backgroundColor = 'green';
+            overlay.style.display = 'block';
+            overlay.classList.add('win');
             document.querySelector('#overlay h1').innerHTML = 'Great job! You win!';
         // Displays losing message    
         } else {
             document.querySelector('#overlay').style.display = 'block';
-            document.querySelector('#overlay').style.backgroundColor = 'red';
+            overlay.classList.add('lose');
             document.querySelector('#overlay h1').innerHTML = 'Sorry, you lose! Try again...';
         }
     };
@@ -109,6 +102,9 @@ class Game {
             this.activePhrase.showMatchedLetter(button.innerHTML);
             button.classList.add('chosen');
             this.checkForWin();
+            if (this.checkForWin() == true) {
+                this.gameOver(true);
+            }
         } else {
             button.classList.add('wrong');
             this.removeLife();
