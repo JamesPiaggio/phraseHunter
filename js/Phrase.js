@@ -1,7 +1,6 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
+// Phrase display varible
 const phraseList = document.querySelector('ul');
+// Phrase class constructor
 class Phrase {
     constructor (phrase) {
         this.phrase = phrase.toString().toLowerCase();

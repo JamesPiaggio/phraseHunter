@@ -1,6 +1,6 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
+// Variable for qwertyb buttons
+const buttons = document.querySelectorAll('.key');
+// Game class constructor
 class Game {
     constructor () {
         this.missed = 0;
@@ -31,7 +31,6 @@ class Game {
             phraseUl.removeChild(phraseLi[i]);
         }
         // Reactivates buttons
-        const buttons = document.querySelectorAll('.key');
         for (let i = 0; i < buttons.length; i++) {
                 buttons[i].disabled = false;
                 buttons[i].classList.remove('wrong', 'chosen');
@@ -79,6 +78,9 @@ class Game {
     */
     gameOver(gameWon) {
         const overlay = document.querySelector('#overlay');
+        for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = true;
+        }
         // Displays winning message
         if (gameWon === true) {
             overlay.style.display = 'block';
